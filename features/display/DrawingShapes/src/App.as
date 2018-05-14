@@ -4,7 +4,6 @@ package {
 	import openfl.display.CapsStyle;
 	import openfl.display.Graphics;
 	import openfl.display.Sprite;
-	import openfl.display.Stage;
 	
 	
 	public class App extends Sprite {

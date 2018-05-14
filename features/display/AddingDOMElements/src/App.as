@@ -5,7 +5,6 @@ package {
 	import openfl.display.BitmapData;
 	import openfl.display.DOMElement;
 	import openfl.display.Sprite;
-	import openfl.display.Stage;
 	
 	
 	public class App extends Sprite {
