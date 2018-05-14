@@ -7,10 +7,10 @@ package {
 	import openfl.utils.Assets;
 	
 	
-	public class Entry {
+	public class Main {
 		
 		
-		public function Entry () {
+		public function Main () {
 			
 			var manifest:AssetManifest = new AssetManifest ();
 			manifest.addBitmapData ("assets/openfl.png");
