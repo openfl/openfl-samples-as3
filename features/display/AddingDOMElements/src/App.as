@@ -17,7 +17,7 @@ package {
 			BitmapData.loadFromFile ("openfl.png").onComplete (function (bitmapData:BitmapData):void {
 				
 				var bitmap:Bitmap = new Bitmap (bitmapData);
-				this.addChild (bitmap);
+				addChild (bitmap);
 				
 				var div:HTMLDivElement = document.createElement ("div") as HTMLDivElement;
 				div.style.fontFamily = "sans-serif";
@@ -34,14 +34,14 @@ package {
 				domSprite.x = 40;
 				domSprite.y = 100;
 				domSprite.rotation = 8;
-				this.addChild (domSprite);
+				addChild (domSprite);
 				
 				var sprite:Sprite = new Sprite ();
 				sprite.graphics.beginFill (0x777777);
 				sprite.graphics.drawCircle (50, 50, 50);
 				sprite.x = 250;
 				sprite.y = 160;
-				this.addChild (sprite);
+				addChild (sprite);
 				
 			}).onError (function (e:Error):void { trace (e); });
 			
