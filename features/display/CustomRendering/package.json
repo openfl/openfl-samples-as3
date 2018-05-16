@@ -1,0 +1,20 @@
+{
+  "name": "org.openfl.samples.customrendering-as3",
+  "version": "1.0.0",
+  "private": true,
+  "devDependencies": {
+    "@apache-royale/cli": "^0.1.0",
+    "@apache-royale/royale-js": "^0.9.3",
+    "asconfigc": "^0.6.9",
+    "cpx": "^1.5.0",
+    "openfl": "^8.0.1"
+  },
+  "scripts": {
+    "build": "npm run build:dev",
+    "build:dev": "cpx node_modules/openfl/dist/openfl.min.js bin/js-debug && asconfigc --debug=true",
+    "build:prod": "cpx node_modules/openfl/dist/openfl.min.js bin/js-release && asconfigc --debug=false",
+    "start": "npm run start:dev",
+    "start:dev": "npm run build:dev && royale serve:debug",
+    "start:prod": "npm run build:prod && royale serve:release"
+  }
+}
