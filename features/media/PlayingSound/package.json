@@ -9,7 +9,7 @@
     "asconfigc": "^0.6.9",
     "cpx": "^1.5.0",
     "howler": "^2.0.12",
-    "openfl": "^8.0.1"
+    "openfl": "^8.1.0"
   },
   "scripts": {
     "build": "npm run build:dev",
