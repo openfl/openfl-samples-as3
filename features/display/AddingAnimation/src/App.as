@@ -1,8 +1,8 @@
 package {
 	
 	
-	import com.eclecticdesignstudio.motion.easing.Elastic;
-	import com.eclecticdesignstudio.motion.Actuate;
+	import motion.easing.Elastic;
+	import motion.Actuate;
 	import openfl.display.Bitmap;
 	import openfl.display.BitmapData;
 	import openfl.display.Sprite;
