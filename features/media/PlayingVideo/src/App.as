@@ -1,40 +1,52 @@
 package {
 	
 	
-	import openfl.display.Bitmap;
-	import openfl.display.Loader;
 	import openfl.display.Sprite;
-	import openfl.events.Event;
-	import openfl.net.URLRequest;
+	import openfl.display.Stage;
+	import openfl.events.AsyncErrorEvent;
+	import openfl.media.Video;
+	import openfl.net.NetConnection;
+	import openfl.net.NetStream;
 	
 	
 	public class App extends Sprite {
+		
+		
+		private var netStream:NetStream;
+		private var video:Video;
 		
 		
 		public function App () {
 			
 			super ();
 			
-			var loader:Loader = new Loader ();
-			loader.contentLoaderInfo.addEventListener (Event.COMPLETE, loader_onComplete);
-			loader.load (new URLRequest ("openfl.png"));
+			video = new Video ();
+			addChild (video);
+			
+			var netConnection:NetConnection = new NetConnection ();
+			netConnection.connect (null);
+			
+			netStream = new NetStream (netConnection);
+			netStream.client = { onMetaData: client_onMetaData };
+			netStream.addEventListener (AsyncErrorEvent.ASYNC_ERROR, netStream_onAsyncError); 
+			netStream.play ("assets/example.mp4");
 			
 		}
 		
 		
-		
-		
-		// Event Handlers
-		
-		
-		
-		
-		private function loader_onComplete (event:Event):void {
+		private function client_onMetaData (metaData:Object):void {
 			
-			var bitmap:Bitmap = event.target.loader.content as Bitmap;
-			bitmap.x = (stage.stageWidth - bitmap.width) / 2;
-			bitmap.y = (stage.stageHeight - bitmap.height) / 2;
-			stage.addChild (bitmap);
+			video.attachNetStream (netStream);
+			
+			video.width = video.videoWidth;
+			video.height = video.videoHeight;
+			
+		}
+		
+		
+		private function netStream_onAsyncError (event:AsyncErrorEvent):void {
+			
+			trace ("Error loading video");
 			
 		}
 		
