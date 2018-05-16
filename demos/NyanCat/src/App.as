@@ -1,11 +1,9 @@
 package {
 	
 	
-	import openfl.display.Bitmap;
-	import openfl.display.Loader;
+	import openfl.display.MovieClip;
 	import openfl.display.Sprite;
-	import openfl.events.Event;
-	import openfl.net.URLRequest;
+	import openfl.utils.AssetLibrary;
 	
 	
 	public class App extends Sprite {
@@ -15,26 +13,12 @@ package {
 			
 			super ();
 			
-			var loader:Loader = new Loader ();
-			loader.contentLoaderInfo.addEventListener (Event.COMPLETE, loader_onComplete);
-			loader.load (new URLRequest ("openfl.png"));
-			
-		}
-		
-		
-		
-		
-		// Event Handlers
-		
-		
-		
-		
-		private function loader_onComplete (event:Event):void {
-			
-			var bitmap:Bitmap = event.target.loader.content as Bitmap;
-			bitmap.x = (stage.stageWidth - bitmap.width) / 2;
-			bitmap.y = (stage.stageHeight - bitmap.height) / 2;
-			stage.addChild (bitmap);
+			AssetLibrary.loadFromFile ("assets/library.bundle").onComplete (function (library:AssetLibrary):void {
+				
+				var cat:MovieClip = library.getMovieClip ("NyanCatAnimation");
+				addChild (cat);
+				
+			}).onError (function (e:Error):void { trace (e); });
 			
 		}
 		

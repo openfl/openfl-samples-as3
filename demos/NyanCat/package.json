@@ -1,5 +1,5 @@
 {
-  "name": "org.openfl.samples.displayingabitmap-as3",
+  "name": "org.openfl.samples.nyancat-as3",
   "version": "1.0.0",
   "private": true,
   "devDependencies": {
@@ -11,8 +11,8 @@
   },
   "scripts": {
     "build": "npm run build:dev",
-    "build:dev": "cpx node_modules/openfl/dist/openfl.min.js bin/js-debug && asconfigc --debug=true",
-    "build:prod": "cpx node_modules/openfl/dist/openfl.min.js bin/js-release && asconfigc --debug=false",
+    "build:dev": "openfl process assets/library.swf bin/js-debug/assets/library.bundle && cpx node_modules/openfl/dist/openfl.min.js bin/js-debug && asconfigc --debug=true",
+    "build:prod": "openfl process assets/library.swf bin/js-release/assets/library.bundle && cpx node_modules/openfl/dist/openfl.min.js bin/js-release && asconfigc --debug=false",
     "start": "npm run start:dev",
     "start:dev": "npm run build:dev && royale serve:debug",
     "start:prod": "npm run build:prod && royale serve:release"
