@@ -1,11 +1,9 @@
 package {
 	
 	
-	import openfl.display.Bitmap;
-	import openfl.display.Loader;
 	import openfl.display.Sprite;
+	import openfl.display.Stage;
 	import openfl.events.Event;
-	import openfl.net.URLRequest;
 	
 	
 	public class App extends Sprite {
@@ -15,9 +13,11 @@ package {
 			
 			super ();
 			
-			var loader:Loader = new Loader ();
-			loader.contentLoaderInfo.addEventListener (Event.COMPLETE, loader_onComplete);
-			loader.load (new URLRequest ("openfl.png"));
+			addEventListener ("simpleCustomEvent", this_onSimpleCustomEvent);
+			addEventListener (CustomEvent.TYPED_CUSTOM_EVENT, this_onTypedCustomEvent);
+			
+			dispatchEvent (new Event ("simpleCustomEvent"));
+			dispatchEvent (new CustomEvent (CustomEvent.TYPED_CUSTOM_EVENT, 100));
 			
 		}
 		
@@ -29,12 +29,16 @@ package {
 		
 		
 		
-		private function loader_onComplete (event:Event):void {
+		private function this_onSimpleCustomEvent (event:Event):void {
 			
-			var bitmap:Bitmap = event.target.loader.content as Bitmap;
-			bitmap.x = (stage.stageWidth - bitmap.width) / 2;
-			bitmap.y = (stage.stageHeight - bitmap.height) / 2;
-			stage.addChild (bitmap);
+			trace (event);
+			
+		}
+		
+		
+		private function this_onTypedCustomEvent (event:CustomEvent):void {
+			
+			trace (event);
 			
 		}
 		

@@ -1,23 +1,47 @@
 package {
 	
 	
+	import motion.Actuate;
 	import openfl.display.Bitmap;
-	import openfl.display.Loader;
 	import openfl.display.Sprite;
-	import openfl.events.Event;
-	import openfl.net.URLRequest;
+	import openfl.display.Stage;
+	import openfl.events.MouseEvent;
+	import openfl.utils.AssetLibrary;
+	import openfl.utils.AssetManifest;
+	import openfl.utils.Assets;
 	
 	
 	public class App extends Sprite {
+		
+		
+		private var Logo:Sprite;
+		private var Destination:Sprite;
+		
+		private var cacheOffsetX:Number;
+		private var cacheOffsetY:Number;
 		
 		
 		public function App () {
 			
 			super ();
 			
-			var loader:Loader = new Loader ();
-			loader.contentLoaderInfo.addEventListener (Event.COMPLETE, loader_onComplete);
-			loader.load (new URLRequest ("openfl.png"));
+			Logo = new Sprite ();
+			Logo.addChild (new Bitmap (Assets.getBitmapData ("assets/openfl.png")));
+			Logo.x = 100;
+			Logo.y = 100;
+			Logo.buttonMode = true;
+			
+			Destination = new Sprite ();
+			Destination.graphics.beginFill (0xF5F5F5);
+			Destination.graphics.lineStyle (1, 0xCCCCCC);
+			Destination.graphics.drawRect (0, 0, Logo.width + 10, Logo.height + 10);
+			Destination.x = 300;
+			Destination.y = 95;
+			
+			addChild (Destination);
+			addChild (Logo);
+			
+			Logo.addEventListener (MouseEvent.MOUSE_DOWN, Logo_onMouseDown);
 			
 		}
 		
@@ -29,12 +53,35 @@ package {
 		
 		
 		
-		private function loader_onComplete (event:Event):void {
+		private function Logo_onMouseDown (event:MouseEvent):void {
 			
-			var bitmap:Bitmap = event.target.loader.content as Bitmap;
-			bitmap.x = (stage.stageWidth - bitmap.width) / 2;
-			bitmap.y = (stage.stageHeight - bitmap.height) / 2;
-			stage.addChild (bitmap);
+			cacheOffsetX = Logo.x - event.stageX;
+			cacheOffsetY = Logo.y - event.stageY;
+			
+			stage.addEventListener (MouseEvent.MOUSE_MOVE, stage_onMouseMove);
+			stage.addEventListener (MouseEvent.MOUSE_UP, stage_onMouseUp);
+			
+		}
+		
+		
+		private function stage_onMouseMove (event:MouseEvent):void {
+			
+			Logo.x = event.stageX + cacheOffsetX;
+			Logo.y = event.stageY + cacheOffsetY;
+			
+		}
+		
+		
+		private function stage_onMouseUp (event:MouseEvent):void {
+			
+			if (Destination.hitTestPoint (event.stageX, event.stageY)) {
+				
+				Actuate.tween (Logo, 1, { x: Destination.x + 5, y: Destination.y + 5 } );
+				
+			}
+			
+			stage.removeEventListener (MouseEvent.MOUSE_MOVE, stage_onMouseMove);
+			stage.removeEventListener (MouseEvent.MOUSE_UP, stage_onMouseUp);
 			
 		}
 		
