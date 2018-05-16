@@ -2,6 +2,9 @@ package {
 	
 	
 	import openfl.display.Stage;
+	import openfl.utils.AssetLibrary;
+	import openfl.utils.AssetManifest;
+	import openfl.utils.Assets;
 	
 	
 	public class Main {
@@ -9,8 +12,21 @@ package {
 		
 		public function Main () {
 			
-			var stage:Stage = new Stage (550, 400, 0xFFFFFF, App);
-			document.body.appendChild (stage.element);
+			var manifest:AssetManifest = new AssetManifest ();
+			manifest.addFont ("Katamotz Ikasi");
+			
+			AssetLibrary.loadFromManifest (manifest).onComplete (function (library:AssetLibrary):void {
+				
+				//Assets.registerLibrary ("default", library);
+				
+				var stage:Stage = new Stage (550, 400, 0xFFFFFF, App);
+				document.body.appendChild (stage.element);
+				
+			}).onError (function (e:Error):void {
+				
+				trace (e);
+				
+			});
 			
 		}
 		

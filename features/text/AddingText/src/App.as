@@ -1,11 +1,13 @@
 package {
 	
 	
-	import openfl.display.Bitmap;
-	import openfl.display.Loader;
 	import openfl.display.Sprite;
-	import openfl.events.Event;
-	import openfl.net.URLRequest;
+	import openfl.display.Stage;
+	import openfl.text.Font;
+	import openfl.text.TextField;
+	import openfl.text.TextFormat;
+	import openfl.utils.AssetLibrary;
+	import openfl.utils.AssetManifest;
 	
 	
 	public class App extends Sprite {
@@ -15,26 +17,20 @@ package {
 			
 			super ();
 			
-			var loader:Loader = new Loader ();
-			loader.contentLoaderInfo.addEventListener (Event.COMPLETE, loader_onComplete);
-			loader.load (new URLRequest ("openfl.png"));
+			var format:TextFormat = new TextFormat ("Katamotz Ikasi", 30, 0x7A0026);
+			var textField:TextField = new TextField ();
 			
-		}
-		
-		
-		
-		
-		// Event Handlers
-		
-		
-		
-		
-		private function loader_onComplete (event:Event):void {
+			textField.defaultTextFormat = format;
+			textField.embedFonts = true;
+			textField.selectable = false;
 			
-			var bitmap:Bitmap = event.target.loader.content as Bitmap;
-			bitmap.x = (stage.stageWidth - bitmap.width) / 2;
-			bitmap.y = (stage.stageHeight - bitmap.height) / 2;
-			stage.addChild (bitmap);
+			textField.x = 50;
+			textField.y = 50;
+			textField.width = 200;
+			
+			textField.text = "Hello World";
+			
+			addChild (textField);
 			
 		}
 		
