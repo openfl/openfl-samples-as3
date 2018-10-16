@@ -8,7 +8,8 @@
             "src"
         ],
         "external-library-path": [
-            "node_modules/openfl/dist/openfl.swc"
+            "node_modules/openfl/dist/openfl.swc",
+            "node_modules/actuate/dist/actuate.swc"
         ],
         "targets": [
             "js"

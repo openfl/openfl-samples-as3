@@ -26,7 +26,6 @@ package {
 	import openfl.utils.AGALMiniAssembler;
 	import openfl.utils.Assets;
 	import openfl.utils.getTimer;
-	import openfl.Vector;
 	
 	
 	public class App extends Sprite {
@@ -106,17 +105,17 @@ package {
 			
 			context3D.configureBackBuffer (550, 400, 1, true);
 			
-			var vertices:openfl.Vector = openfl.Vector.ofArray ([
+			var vertices:Vector.<Number> = new <Number>[
 				-0.3, -0.3, 0, 0, 0,
 				-0.3, 0.3, 0, 0, 1,
 				0.3, 0.3, 0, 1, 1,
-				0.3, -0.3, 0, 1, 0 ]);
+				0.3, -0.3, 0, 1, 0 ];
 			
 			vertexbuffer = context3D.createVertexBuffer (4, 5);
 			vertexbuffer.uploadFromVector (vertices, 0, 4);
 			
 			indexBuffer = context3D.createIndexBuffer (6);
-			indexBuffer.uploadFromVector (openfl.Vector.ofArray ([ 0, 1, 2, 2, 3, 0 ]), 0, 6);
+			indexBuffer.uploadFromVector (new <uint>[ 0, 1, 2, 2, 3, 0 ], 0, 6);
 			
 			texture = context3D.createTexture (bitmapData.width, bitmapData.height, Context3DTextureFormat.BGRA, false);
 			uploadTextureWithMipMaps (texture, bitmapData);

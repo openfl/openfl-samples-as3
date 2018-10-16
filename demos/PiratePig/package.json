@@ -13,8 +13,8 @@
   },
   "scripts": {
     "build": "npm run build:dev",
-    "build:dev": "cpx src/fonts/* bin/js-debug/fonts && cpx src/sounds/* bin/js-debug/sounds && cpx node_modules/openfl/dist/openfl.min.js bin/js-debug && cpx node_modules/actuate/dist/actuate.min.js bin/js-debug && cpx node_modules/howler/dist/howler.min.js bin/js-debug && asconfigc --debug=true",
-    "build:prod": "cpx src/fonts/* bin/js-release/fonts && cpx src/sounds/* bin/js-release/sounds && cpx node_modules/openfl/dist/openfl.min.js bin/js-release && cpx node_modules/actuate/dist/actuate.min.js bin/js-release && cpx node_modules/howler/dist/howler.min.js bin/js-release  && asconfigc --debug=false",
+    "build:dev": "cpx src/fonts/**/* bin/js-debug/fonts && cpx src/sounds/**/* bin/js-debug/sounds && cpx node_modules/openfl/dist/openfl.min.js bin/js-debug && cpx node_modules/actuate/dist/actuate.min.js bin/js-debug && cpx node_modules/howler/dist/howler.min.js bin/js-debug && asconfigc --debug=true",
+    "build:prod": "cpx src/fonts/**/* bin/js-release/fonts && cpx src/sounds/**/* bin/js-release/sounds && cpx node_modules/openfl/dist/openfl.min.js bin/js-release && cpx node_modules/actuate/dist/actuate.min.js bin/js-release && cpx node_modules/howler/dist/howler.min.js bin/js-release  && asconfigc --debug=false",
     "start": "npm run start:dev",
     "start:dev": "npm run build:dev && royale serve:debug",
     "start:prod": "npm run build:prod && royale serve:release"

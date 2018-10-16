@@ -17,7 +17,6 @@ package {
 	import openfl.utils.AGALMiniAssembler;
 	import openfl.utils.ByteArray;
 	import openfl.utils.getTimer;
-	import openfl.Vector;
 	
 	
 	public class App extends Sprite {
@@ -46,15 +45,15 @@ package {
 			
 			context3D.setBlendFactors (Context3DBlendFactor.ONE, Context3DBlendFactor.ONE_MINUS_SOURCE_ALPHA);
 			
-			var vertices:openfl.Vector = openfl.Vector.ofArray ([
+			var vertices:Vector.<Number> = new <Number>[
 				-0.3, -0.3, 0, 1, 0, 0,
 				-0.3, 0.3, 0, 0, 1, 0,
-				0.3, 0.3, 0, 0, 0, 1 ]);
+				0.3, 0.3, 0, 0, 0, 1 ];
 			
 			vertexBuffer = context3D.createVertexBuffer (3, 6);
 			vertexBuffer.uploadFromVector (vertices, 0, 3);
 			
-			var indices:openfl.Vector = openfl.Vector.ofArray ([ 0, 1, 2 ]);
+			var indices:Vector.<uint> = new <uint>[ 0, 1, 2 ];
 			
 			indexBuffer = context3D.createIndexBuffer (3);
 			indexBuffer.uploadFromVector (indices, 0, 3);

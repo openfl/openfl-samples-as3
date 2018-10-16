@@ -30,7 +30,6 @@ package {
 	
 	import openfl.geom.Matrix3D;
 	import openfl.geom.Vector3D;
-	import openfl.Vector;
 	
 	
 	public class PerspectiveMatrix3D extends Matrix3D {
@@ -42,7 +41,7 @@ package {
 		private var _w:Vector3D = new Vector3D ();
 		
 		
-		public function PerspectiveMatrix3D (v:openfl.Vector = null) {
+		public function PerspectiveMatrix3D (v:Vector = null) {
 			
 			super (v);
 			
@@ -109,47 +108,47 @@ package {
 		
 		public function orthoLH (width:Number, height:Number, zNear:Number, zFar:Number):void {
 			
-			this.copyRawDataFrom (openfl.Vector.ofArray ([
+			this.copyRawDataFrom (new <Number>[
 				2.0 / width, 0.0, 0.0, 0.0,
 				0.0, 2.0 / height, 0.0, 0.0,
 				0.0, 0.0, 1.0 / (zFar - zNear), 0.0,
 				0.0, 0.0, zNear / (zNear - zFar), 1.0
-			]));
+			]);
 			
 		}
 		
 		
 		public function orthoOffCenterLH (left:Number, right:Number, bottom:Number, top:Number, zNear:Number, zFar:Number):void {
 			
-			this.copyRawDataFrom (openfl.Vector.ofArray ([
+			this.copyRawDataFrom (new <Number>[
 				2.0 / (right - left), 0.0, 0.0, 0.0,
 				0.0, 2.0 * zNear / (top - bottom), 0.0, 0.0,
 				-1.0 - 2.0 * left / (right - left), 1.0 + 2.0 * top / (bottom - top), 1.0 / (zFar - zNear), 0.0,
 				0.0, 0.0, zNear / (zNear - zFar), 1.0
-			]));
+			]);
 			
 		}
 
 		public function orthoOffCenterRH (left:Number, right:Number, bottom:Number, top:Number, zNear:Number, zFar:Number):void {
 			
-			this.copyRawDataFrom (openfl.Vector.ofArray ([
+			this.copyRawDataFrom (new <Number>[
 				2.0 / (right - left), 0.0, 0.0, 0.0,
 				0.0, 2.0 * zNear / (top - bottom), 0.0, 0.0,
 				-1.0 - 2.0 * left / (right - left), 1.0 + 2.0 * top / (bottom - top), 1.0 / (zNear - zFar), 0.0,
 				0.0, 0.0, zNear / (zNear - zFar), 1.0
-			]));
+			]);
 			
 		}
 		
 		
 		public function orthoRH (width:Number, height:Number, zNear:Number, zFar:Number):void {
 			
-			this.copyRawDataFrom (openfl.Vector.ofArray ([
+			this.copyRawDataFrom (new <Number>[
 				2.0 / width, 0.0, 0.0, 0.0,
 				0.0, 2.0 / height, 0.0, 0.0,
 				0.0, 0.0, 1.0 / (zNear - zNear), 0.0,
 				0.0, 0.0, zNear / (zNear - zFar), 1.0
-			]));
+			]);
 			
 		}
 		
@@ -159,12 +158,12 @@ package {
 			var yScale:Number = 1.0 / Math.tan (fieldOfViewY / 2.0);
 			var xScale:Number = yScale / aspectRatio;
 			
-			this.copyRawDataFrom (openfl.Vector.ofArray ([
+			this.copyRawDataFrom (new <Number>[
 				xScale, 0.0, 0.0, 0.0,
 				0.0, yScale, 0.0, 0.0,
 				0.0, 0.0, zFar / (zFar - zNear), 1.0,
 				0.0, 0.0, (zNear * zFar) / (zNear - zFar), 0.0
-			]));
+			]);
 			
 		}
 		
@@ -174,60 +173,60 @@ package {
 			var yScale:Number = 1.0 / Math.tan (fieldOfViewY / 2.0);
 			var xScale:Number = yScale / aspectRatio;
 			
-			this.copyRawDataFrom (openfl.Vector.ofArray ([
+			this.copyRawDataFrom (new <Number>[
 				xScale, 0.0, 0.0, 0.0,
 				0.0, yScale, 0.0, 0.0,
 				0.0, 0.0, zFar / (zNear - zFar), -1.0,
 				0.0, 0.0, (zNear * zFar) / (zNear - zFar), 0.0
-			]));
+			]);
 			
 		}
 		
 		
 		public function perspectiveOffCenterLH (left:Number, right:Number, bottom:Number, top:Number, zNear:Number, zFar:Number):void {
 			
-			this.copyRawDataFrom (openfl.Vector.ofArray ([
+			this.copyRawDataFrom (new <Number>[
 				2.0 * zNear / (right - left), 0.0, 0.0, 0.0,
 				0.0, -2.0 * zNear / (bottom - top), 0.0, 0.0,
 				-1.0 - 2.0 * left / (right - left), 1.0 + 2.0 * top / (bottom - top), -zFar / (zNear - zFar), 1.0,
 				0.0, 0.0, (zNear * zFar) / (zNear - zFar), 0.0
-			]));
+			]);
 			
 		}
 		
 		
 		public function perspectiveLH (width:Number, height:Number, zNear:Number, zFar:Number):void {
 			
-			this.copyRawDataFrom (openfl.Vector.ofArray ([
+			this.copyRawDataFrom (new <Number>[
 				2.0 * zNear / width, 0.0, 0.0, 0.0,
 				0.0, 2.0 * zNear / height, 0.0, 0.0,
 				0.0, 0.0, zFar / (zFar - zNear), 1.0,
 				0.0, 0.0, zNear * zFar / (zNear - zFar), 0.0
-			]));
+			]);
 			
 		}
 		
 		
 		public function perspectiveOffCenterRH (left:Number, right:Number, bottom:Number, top:Number, zNear:Number, zFar:Number):void {
 			
-			this.copyRawDataFrom (openfl.Vector.ofArray ([
+			this.copyRawDataFrom (new <Number>[
 				2.0 * zNear / (right - left), 0.0, 0.0, 0.0,
 				0.0, -2.0 * zNear / (bottom - top), 0.0, 0.0,
 				1.0 + 2.0 * left / (right - left), -1.0 - 2.0 * top / (bottom - top), zFar / (zNear - zFar), -1.0,
 				0.0, 0.0, (zNear * zFar) / (zNear - zFar), 0.0
-			]));
+			]);
 			
 		}
 		
 		
 		public function perspectiveRH (width:Number, height:Number, zNear:Number, zFar:Number):void {
 			
-			this.copyRawDataFrom (openfl.Vector.ofArray ([
+			this.copyRawDataFrom (new <Number>[
 				2.0 * zNear / width, 0.0, 0.0, 0.0,
 				0.0, 2.0 * zNear / height, 0.0, 0.0,
 				0.0, 0.0, zFar / (zNear - zFar), -1.0,
 				0.0, 0.0, zNear * zFar / (zNear - zFar), 0.0
-			]));
+			]);
 			
 		}
 		
