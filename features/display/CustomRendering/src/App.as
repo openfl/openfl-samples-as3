@@ -91,7 +91,9 @@ package {
 			
 		}
 		
-		
+		/**
+		 * @royalesuppresscompleximplicitcoercion
+		 */
 		private function renderOpenGL (event:RenderEvent):void {
 			
 			var renderer:OpenGLRenderer = event.renderer as OpenGLRenderer;

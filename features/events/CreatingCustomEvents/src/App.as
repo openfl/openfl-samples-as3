@@ -4,6 +4,7 @@ package {
 	import openfl.display.Sprite;
 	import openfl.display.Stage;
 	import openfl.events.Event;
+	import com.example.CustomEvent;
 	
 	
 	public class App extends Sprite {

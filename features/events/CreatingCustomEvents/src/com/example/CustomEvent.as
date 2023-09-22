@@ -1,4 +1,4 @@
-package {
+package com.example {
 	
 	
 	import openfl.events.Event;

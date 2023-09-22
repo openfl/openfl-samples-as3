@@ -11,12 +11,10 @@
             "node_modules/openfl/dist/openfl.swc",
             "node_modules/actuate/dist/actuate.swc"
         ],
+        "source-map": true,
         "targets": [
-            "js"
+            "JS"
         ]
     },
-    "files":
-    [
-        "src/Main.as"
-    ]
+    "mainClass": "Main"
 }

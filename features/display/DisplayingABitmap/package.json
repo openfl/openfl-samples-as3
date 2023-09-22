@@ -10,7 +10,7 @@
     "openfl": "^8.1.0"
   },
   "scripts": {
-    "build": "npm run build:dev",
+    "build": "npm run build:prod",
     "build:dev": "cpx node_modules/openfl/dist/openfl.min.js bin/js-debug && asconfigc --debug=true",
     "build:prod": "cpx node_modules/openfl/dist/openfl.min.js bin/js-release && asconfigc --debug=false",
     "start": "npm run start:dev",
