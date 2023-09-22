@@ -10,12 +10,10 @@
         "external-library-path": [
             "node_modules/openfl/dist/openfl.swc"
         ],
+        "source-map": true,
         "targets": [
-            "js"
+            "JS"
         ]
     },
-    "files":
-    [
-        "src/Main.as"
-    ]
+    "mainClass": "Main"
 }
