@@ -1,0 +1,64 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Build demos/BunnyMark
+        working-directory: demos/BunnyMark
+        run: |
+          npm ci
+          npm run build:prod
+        env:
+          CI: true
+      - uses: actions/upload-artifact@v3
+        with:
+          name: BunnyMark
+          path: demos/BunnyMark/bin/js-release
+          if-no-files-found: error
+      - name: Build demos/HerokuShaders
+        working-directory: demos/HerokuShaders
+        run: |
+          npm ci
+          npm run build:prod
+        env:
+          CI: true
+      - uses: actions/upload-artifact@v3
+        with:
+          name: HerokuShaders
+          path: demos/HerokuShaders/bin/js-release
+          if-no-files-found: error
+      - name: Build demos/NyanCat
+        working-directory: demos/NyanCat
+        run: |
+          npm ci
+          npm run build:prod
+        env:
+          CI: true
+      - uses: actions/upload-artifact@v3
+        with:
+          name: NyanCat
+          path: demos/NyanCat/bin/js-release
+          if-no-files-found: error
+      - name: Build demos/PiratePig
+        working-directory: demos/PiratePig
+        run: |
+          npm ci
+          npm run build:prod
+        env:
+          CI: true
+      - uses: actions/upload-artifact@v3
+        with:
+          name: PiratePig
+          path: demos/PiratePig/bin/js-release
+          if-no-files-found: error
