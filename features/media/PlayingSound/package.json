@@ -4,7 +4,7 @@
   "private": true,
   "devDependencies": {
     "@apache-royale/royale-js": "^0.9.11",
-    "actuate": "1.8.9-beta",
+    "actuate": "^1.9.0",
     "asconfigc": "^1.8.0",
     "cpx": "^1.5.0",
     "howler": "^2.0.15",
@@ -13,7 +13,7 @@
   },
   "scripts": {
     "build": "npm run build:prod",
-    "build:dev": "cpx src/assets/**/* bin/js-debug/assets/ && cpx node_modules/openfl/dist/openfl.min.js bin/js-debug && cpx node_modules/actuate/dist/actuate.min.js bin/js-debug && cpx node_modules/howler/dist/howler.js bin/js-debug && asconfigc --debug=true",
+    "build:dev": "cpx src/assets/**/* bin/js-debug/assets/ && cpx node_modules/openfl/dist/openfl.min.js bin/js-debug && cpx node_modules/actuate/dist/actuate.min.js bin/js-debug && cpx node_modules/howler/dist/howler.min.js bin/js-debug && asconfigc --debug=true",
     "build:prod": "cpx src/assets/**/* bin/js-release/assets/ && cpx node_modules/openfl/dist/openfl.min.js bin/js-release && cpx node_modules/actuate/dist/actuate.min.js bin/js-release && cpx node_modules/howler/dist/howler.min.js bin/js-release && asconfigc --debug=false",
     "start": "npm run start:dev",
     "start:dev": "npm run build:dev && http-server bin/js-debug",
