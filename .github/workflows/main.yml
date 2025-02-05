@@ -10,8 +10,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 18
       - name: Build demos/BunnyMark
@@ -21,7 +21,7 @@ jobs:
           npm run build:prod
         env:
           CI: true
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: BunnyMark
           path: demos/BunnyMark/bin/js-release
@@ -33,7 +33,7 @@ jobs:
           npm run build:prod
         env:
           CI: true
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: HerokuShaders
           path: demos/HerokuShaders/bin/js-release
@@ -45,7 +45,7 @@ jobs:
           npm run build:prod
         env:
           CI: true
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: NyanCat
           path: demos/NyanCat/bin/js-release
@@ -57,7 +57,7 @@ jobs:
           npm run build:prod
         env:
           CI: true
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: PiratePig
           path: demos/PiratePig/bin/js-release
@@ -69,7 +69,7 @@ jobs:
           npm run build:prod
         env:
           CI: true
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: AddingAnimation
           path: features/display/AddingAnimation/bin/js-release
@@ -81,7 +81,7 @@ jobs:
           npm run build:prod
         env:
           CI: true
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: CustomRendering
           path: features/display/CustomRendering/bin/js-release
@@ -93,7 +93,7 @@ jobs:
           npm run build:prod
         env:
           CI: true
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: DisplayingABitmap
           path: features/display/DisplayingABitmap/bin/js-release
@@ -105,7 +105,7 @@ jobs:
           npm run build:prod
         env:
           CI: true
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: DrawingShapes
           path: features/display/DrawingShapes/bin/js-release
@@ -117,7 +117,7 @@ jobs:
           npm run build:prod
         env:
           CI: true
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: SimpleTilemap
           path: features/display/SimpleTilemap/bin/js-release
@@ -129,7 +129,7 @@ jobs:
           npm run build:prod
         env:
           CI: true
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: UsingBitmapData
           path: features/display/UsingBitmapData/bin/js-release
@@ -142,7 +142,7 @@ jobs:
           npm run build:prod
         env:
           CI: true
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: UsingSWFAssets
           path: features/display/UsingSWFAssets/bin/js-release
@@ -154,7 +154,7 @@ jobs:
           npm run build:prod
         env:
           CI: true
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: HelloTriangle
           path: features/display3D/HelloTriangle/bin/js-release
@@ -166,7 +166,7 @@ jobs:
           npm run build:prod
         env:
           CI: true
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: Stage3DCamera
           path: features/display3D/Stage3DCamera/bin/js-release
@@ -178,7 +178,7 @@ jobs:
           npm run build:prod
         env:
           CI: true
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: Stage3DMipmap
           path: features/display3D/Stage3DMipmap/bin/js-release
@@ -190,7 +190,7 @@ jobs:
           npm run build:prod
         env:
           CI: true
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: CreatingAMainLoop
           path: features/events/CreatingAMainLoop/bin/js-release
@@ -202,7 +202,7 @@ jobs:
           npm run build:prod
         env:
           CI: true
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: CreatingCustomEvents
           path: features/events/CreatingCustomEvents/bin/js-release
@@ -214,7 +214,7 @@ jobs:
           npm run build:prod
         env:
           CI: true
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: HandlingKeyboardEvents
           path: features/events/HandlingKeyboardEvents/bin/js-release
@@ -226,7 +226,7 @@ jobs:
           npm run build:prod
         env:
           CI: true
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: HandlingMouseEvents
           path: features/events/HandlingMouseEvents/bin/js-release
@@ -238,7 +238,7 @@ jobs:
           npm run build:prod
         env:
           CI: true
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: PlayingSound
           path: features/media/PlayingSound/bin/js-release
@@ -250,7 +250,7 @@ jobs:
           npm run build:prod
         env:
           CI: true
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: PlayingVideo
           path: features/media/PlayingVideo/bin/js-release
@@ -262,7 +262,7 @@ jobs:
           npm run build:prod
         env:
           CI: true
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: AddingText
           path: features/text/AddingText/bin/js-release
