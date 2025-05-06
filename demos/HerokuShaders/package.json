@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "private": true,
   "devDependencies": {
-    "@apache-royale/royale-js": "^0.9.11",
-    "asconfigc": "^1.8.0",
+    "@apache-royale/royale-js": "^0.9.12",
+    "asconfigc": "^1.8.1",
     "cpx": "^1.5.0",
     "http-server": "^14.1.1",
-    "openfl": "^9.3.1"
+    "openfl": "^9.4.1"
   },
   "scripts": {
     "build": "npm run build:prod",
